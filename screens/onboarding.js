@@ -5,7 +5,7 @@ import React from "react";
 
 const OnboardingScreen = ({ navigation }) => {
   const completeOnboarding = async () => {
-    AsyncStorage.setItem("onboardingComplete", "true")
+    AsyncStorage.setItem("onboarded", "true")
       .then(() => {
         navigation.replace("app");
       })

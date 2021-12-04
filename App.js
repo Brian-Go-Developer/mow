@@ -14,6 +14,7 @@ export default function App() {
   useEffect(() => {
     AsyncStorage.getItem("onboarded")
       .then((val) => {
+        console.log(val, "this is val");
         if (val === "true") {
           setIsOnboarded(true);
         }
