@@ -1,3 +1,4 @@
-export { default as Home } from "./Home.js";
-export { default as Profile } from "./Profile.js";
-export { default as Explore } from "./Explore.js";
+export { default as Home } from "./home.js";
+export { default as Profile } from "./profile.js";
+export { default as Explore } from "./explore.js";
+export { default as Onboarding } from "./onboarding.js";
