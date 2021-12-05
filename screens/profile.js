@@ -35,6 +35,20 @@ const ProfileMainSection = () => {
         <Text style={mainStyles.mediumGrayscaleText}>Notifications</Text>
         <View style={mainStyles.horizontalRule} />
       </View>
+      <View style={global.containerNoCenter}>
+        <Text style={mainStyles.smallGrayscaleText}>Support</Text>
+        <Text style={mainStyles.mediumGrayscaleText}>How BiteWagon Works</Text>
+        <View style={mainStyles.horizontalRule} />
+        <Text style={mainStyles.mediumGrayscaleText}>Give us feedback</Text>
+        <View style={mainStyles.horizontalRule} />
+      </View>
+      <View style={global.containerNoCenter}>
+        <Text style={mainStyles.smallGrayscaleText}>Legal</Text>
+        <Text style={mainStyles.mediumGrayscaleText}>Terms of service</Text>
+        <View style={mainStyles.horizontalRule} />
+        <Text style={mainStyles.mediumGrayscaleTextBold}>Logout</Text>
+        <View style={mainStyles.horizontalRule} />
+      </View>
     </>
   );
 };
@@ -91,19 +105,24 @@ const mainStyles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     color: "#616161",
-    marginVertical: 7,
+    marginVertical: 10,
+  },
+  mediumGrayscaleTextBold: {
+    fontSize: 13,
+    fontWeight: "bold",
+    color: "#616161",
+    marginVertical: 10,
   },
   smallGrayscaleText: {
     fontSize: 10,
     fontWeight: "normal",
     color: "#7B7B7B",
-    marginBottom: 1,
+    marginBottom: 10,
   },
   horizontalRule: {
     borderBottomColor: "#7B7B7B",
     borderBottomWidth: StyleSheet.hairlineWidth,
     width: "100%",
-    marginBottom: 10,
   },
 });
 
