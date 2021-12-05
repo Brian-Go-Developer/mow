@@ -1,20 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Home, Profile, Explore, Onboarding } from "./screens";
+import { Home, Profile, Explore, Onboarding, EnableLocation } from "./screens";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Location from "expo-location";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [isOnboarded, setIsOnboarded] = React.useState(false);
+  const [isOnboarded, setIsOnboarded] = useState(false);
+  const [locationEnabled, setLocationEnabled] = useState(false);
+
+  const checkLocationPermissions = async () => {
+    const permission = await Location.hasServicesEnabledAsync();
+    if (permission === true) {
+      setLocationEnabled(true);
+    }
+  };
+
   useEffect(() => {
     AsyncStorage.getItem("onboarded")
       .then((val) => {
-        console.log(val, "this is val");
         if (val === "true") {
           setIsOnboarded(true);
         }
@@ -22,6 +31,7 @@ export default function App() {
       .catch((err) => {
         console.log(err);
       });
+    checkLocationPermissions();
   }, []);
 
   const TabNavigator = () => {
@@ -73,6 +83,13 @@ export default function App() {
             <Stack.Screen
               name="onboarding"
               component={Onboarding}
+              options={{ headerShown: false }}
+            />
+          )}
+          {!locationEnabled && (
+            <Stack.Screen
+              name="location"
+              component={EnableLocation}
               options={{ headerShown: false }}
             />
           )}

@@ -2,12 +2,16 @@ import Onboarding from "react-native-onboarding-swiper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "react-native";
 import React from "react";
+import * as Location from "expo-location";
 
 const OnboardingScreen = ({ navigation }) => {
   const completeOnboarding = async () => {
+    const permission = await Location.hasServicesEnabledAsync();
     AsyncStorage.setItem("onboarded", "true")
       .then(() => {
-        navigation.replace("app");
+        permission
+          ? navigation.navigate("app")
+          : navigation.replace("location");
       })
       .catch((err) => {
         console.log(err);

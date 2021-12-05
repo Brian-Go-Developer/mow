@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <View style={global.container}>
       <StatusBar />
-
       <Text>Home</Text>
     </View>
   );
