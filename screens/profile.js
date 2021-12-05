@@ -20,9 +20,22 @@ const HeaderSection = () => {
 
 const ProfileMainSection = () => {
   return (
-    <View style={global.container}>
-      <Text>Own a food truck? List it on Biteswagen</Text>
-    </View>
+    <>
+      <View style={global.containerHorizontalCenter}>
+        <Text style={mainStyles.largeGrayscaleText}>
+          Own a food truck? List it on BiteWagon
+        </Text>
+        <Text style={mainStyles.smallGrayscaleText}>Learn more {">"}</Text>
+        <View style={mainStyles.horizontalRule} />
+      </View>
+      <View style={global.containerNoCenter}>
+        <Text style={mainStyles.smallGrayscaleText}>Account settings</Text>
+        <Text style={mainStyles.mediumGrayscaleText}>Personal Information</Text>
+        <View style={mainStyles.horizontalRule} />
+        <Text style={mainStyles.mediumGrayscaleText}>Notifications</Text>
+        <View style={mainStyles.horizontalRule} />
+      </View>
+    </>
   );
 };
 
@@ -67,7 +80,32 @@ const headerStyles = StyleSheet.create({
   },
 });
 
-const mainStyles = StyleSheet.create({});
+const mainStyles = StyleSheet.create({
+  largeGrayscaleText: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#616161",
+    marginVertical: 7,
+  },
+  mediumGrayscaleText: {
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "#616161",
+    marginVertical: 7,
+  },
+  smallGrayscaleText: {
+    fontSize: 10,
+    fontWeight: "normal",
+    color: "#7B7B7B",
+    marginBottom: 1,
+  },
+  horizontalRule: {
+    borderBottomColor: "#7B7B7B",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    width: "100%",
+    marginBottom: 10,
+  },
+});
 
 const makeIconRender = (name) => {
   return ({ color }) => (
