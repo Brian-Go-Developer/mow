@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Home, Profile, Explore, Onboarding } from "./screens";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -14,7 +15,6 @@ export default function App() {
   useEffect(() => {
     AsyncStorage.getItem("onboarded")
       .then((val) => {
-        console.log(val, "this is val");
         if (val === "true") {
           setIsOnboarded(true);
         }
@@ -66,7 +66,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator>
           {!isOnboarded && (
@@ -83,7 +83,7 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </View>
   );
 }
 
