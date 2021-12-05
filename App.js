@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Home, Profile, Explore, Onboarding, EnableLocation } from "./screens";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Location from "expo-location";
+import { View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ export default function App() {
 
   const checkLocationPermissions = async () => {
     const permission = await Location.hasServicesEnabledAsync();
+    console.log(permission);
     if (permission === true) {
       setLocationEnabled(true);
     }
@@ -76,7 +78,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator>
           {!isOnboarded && (
@@ -100,7 +102,7 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </View>
   );
 }
 
