@@ -8,4 +8,8 @@ export const global = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 24,
   },
+  containerGrayscaleNoCenter: {
+    height: "100%",
+    backgroundColor: "#EAEAEA",
+  },
 });

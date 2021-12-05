@@ -2,28 +2,40 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { global } from "../styles/global";
+
+const HeaderSection = () => {
+  return (
+    <View style={headerStyles.top}>
+      <View style={headerStyles.icon} />
+      <View>
+        <Text style={headerStyles.topContainerNameText}>First Name</Text>
+        <Text style={headerStyles.topContainerEditProfilePictureText}>
+          Edit profile picture
+        </Text>
+      </View>
+    </View>
+  );
+};
+
+const ProfileMainSection = () => {
+  return (
+    <View style={global.container}>
+      <Text>Own a food truck? List it on Biteswagen</Text>
+    </View>
+  );
+};
 
 const Profile = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.top}>
-        <View style={styles.icon} />
-        <View>
-          <Text style={styles.topContainerNameText}>First Name</Text>
-          <Text style={styles.topContainerEditProfilePictureText}>
-            Edit profile picture
-          </Text>
-        </View>
-      </View>
+    <SafeAreaView style={global.containerGrayscaleNoCenter}>
+      <HeaderSection />
+      <ProfileMainSection />
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    backgroundColor: "#E0E0E0",
-  },
+const headerStyles = StyleSheet.create({
   top: {
     height: "18%",
     backgroundColor: "#fff",
@@ -50,10 +62,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     backgroundColor: "#000",
-    marginLeft: 25,
+    marginLeft: 30,
     marginRight: 15,
   },
 });
+
+const mainStyles = StyleSheet.create({});
 
 const makeIconRender = (name) => {
   return ({ color }) => (
