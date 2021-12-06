@@ -8,4 +8,20 @@ export const global = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 24,
   },
+  containerNoCenter: {
+    flex: 2,
+    paddingHorizontal: 24,
+    justifyContent: "flex-start",
+  },
+  containerGrayscaleNoCenter: {
+    height: "100%",
+    backgroundColor: "#EAEAEA",
+  },
+  containerHorizontalCenter: {
+    flex: 1,
+    paddingTop: 20,
+    alignItems: "center",
+    paddingHorizontal: 24,
+    marginBottom: 15,
+  },
 });
