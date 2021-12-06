@@ -1,18 +1,48 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { global } from "../styles/global";
+import { HorizontalRule } from "../components/index";
 
 const HeaderSection = () => {
   return (
-    <View style={headerStyles.top}>
-      <View style={headerStyles.icon} />
+    <View
+      style={{
+        height: "18%",
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        elevation: 5,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+      }}
+    >
+      <View
+        style={{
+          width: 50,
+          height: 50,
+          backgroundColor: "#000",
+          marginLeft: 30,
+          marginRight: 15,
+        }}
+      />
       <View>
-        <Text style={headerStyles.topContainerNameText}>First Name</Text>
-        <Text style={headerStyles.topContainerEditProfilePictureText}>
-          Edit profile picture
+        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#000" }}>
+          First Name
         </Text>
+        <TouchableOpacity
+          onPress={() => alert("Edit profile touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{ fontSize: 10, fontWeight: "normal", color: "#888888" }}
+          >
+            Edit profile picture
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -21,33 +51,232 @@ const HeaderSection = () => {
 const ProfileMainSection = () => {
   return (
     <>
-      <View style={global.containerHorizontalCenter}>
-        <Text style={mainStyles.largeGrayscaleText}>
+      <View
+        style={{
+          paddingVertical: 20,
+          alignItems: "center",
+          paddingHorizontal: 24,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "bold",
+            color: "#616161",
+            marginVertical: 7,
+          }}
+        >
           Own a food truck? List it on BiteWagon
         </Text>
-        <Text style={mainStyles.smallGrayscaleText}>Learn more {">"}</Text>
-        <View style={mainStyles.horizontalRule} />
+        <TouchableOpacity
+          onPress={() => alert("Learn more touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "normal",
+              color: "#7B7B7B",
+              marginBottom: 10,
+            }}
+          >
+            Learn more {">"}
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1.2}
+          width={"100%"}
+          opacity={0.8}
+        />
       </View>
-      <View style={global.containerNoCenter}>
-        <Text style={mainStyles.smallGrayscaleText}>Account settings</Text>
-        <Text style={mainStyles.mediumGrayscaleText}>Personal Information</Text>
-        <View style={mainStyles.horizontalRule} />
-        <Text style={mainStyles.mediumGrayscaleText}>Notifications</Text>
-        <View style={mainStyles.horizontalRule} />
+      <View
+        style={{
+          paddingBottom: 30,
+          paddingHorizontal: 24,
+          justifyContent: "flex-start",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 10,
+            fontWeight: "normal",
+            color: "#7B7B7B",
+            marginBottom: 10,
+          }}
+        >
+          Account settings
+        </Text>
+        <TouchableOpacity
+          onPress={() => alert("Personal information touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "bold",
+              color: "#616161",
+              marginVertical: 10,
+            }}
+          >
+            Personal information
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1}
+          width={"100%"}
+          opacity={0.3}
+        />
+        <TouchableOpacity
+          onPress={() => alert("Notifications touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "bold",
+              color: "#616161",
+              marginVertical: 10,
+            }}
+          >
+            Notifications
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1}
+          width={"100%"}
+          opacity={0.3}
+        />
       </View>
-      <View style={global.containerNoCenter}>
-        <Text style={mainStyles.smallGrayscaleText}>Support</Text>
-        <Text style={mainStyles.mediumGrayscaleText}>How BiteWagon Works</Text>
-        <View style={mainStyles.horizontalRule} />
-        <Text style={mainStyles.mediumGrayscaleText}>Give us feedback</Text>
-        <View style={mainStyles.horizontalRule} />
+      <View
+        style={{
+          paddingBottom: 30,
+          paddingHorizontal: 24,
+          justifyContent: "flex-start",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 10,
+            fontWeight: "normal",
+            color: "#7B7B7B",
+            marginBottom: 10,
+          }}
+        >
+          Support
+        </Text>
+        <TouchableOpacity
+          onPress={() => alert("How it works touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "bold",
+              color: "#616161",
+              marginVertical: 10,
+            }}
+          >
+            How BiteWagon works
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1}
+          width={"100%"}
+          opacity={0.3}
+        />
+        <TouchableOpacity
+          onPress={() => alert("Give us feedback touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "bold",
+              color: "#616161",
+              marginVertical: 10,
+            }}
+          >
+            Give us feedback
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1}
+          width={"100%"}
+          opacity={0.3}
+        />
       </View>
-      <View style={global.containerNoCenter}>
-        <Text style={mainStyles.smallGrayscaleText}>Legal</Text>
-        <Text style={mainStyles.mediumGrayscaleText}>Terms of service</Text>
-        <View style={mainStyles.horizontalRule} />
-        <Text style={mainStyles.mediumGrayscaleTextBold}>Logout</Text>
-        <View style={mainStyles.horizontalRule} />
+      <View
+        style={{
+          paddingBottom: 30,
+          paddingHorizontal: 24,
+          justifyContent: "flex-start",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 10,
+            fontWeight: "normal",
+            color: "#7B7B7B",
+            marginBottom: 10,
+          }}
+        >
+          Legal
+        </Text>
+        <TouchableOpacity
+          onPress={() => alert("Terms of service touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "bold",
+              color: "#616161",
+              marginVertical: 10,
+            }}
+          >
+            Terms of service
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1}
+          width={"100%"}
+          opacity={0.3}
+        />
+      </View>
+      <View
+        style={{
+          paddingBottom: 30,
+          paddingHorizontal: 24,
+          justifyContent: "flex-start",
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => alert("Logout touchable")}
+          underlayColor="white"
+        >
+          <Text
+            style={{
+              fontSize: 14,
+              fontWeight: "bold",
+              color: "#616161",
+              marginVertical: 10,
+            }}
+          >
+            Logout
+          </Text>
+        </TouchableOpacity>
+        <HorizontalRule
+          color={"#7B7B7B"}
+          height={1}
+          width={"100%"}
+          opacity={0.3}
+        />
       </View>
     </>
   );
@@ -55,76 +284,12 @@ const ProfileMainSection = () => {
 
 const Profile = () => {
   return (
-    <SafeAreaView style={global.containerGrayscaleNoCenter}>
+    <SafeAreaView style={{ height: "100%", backgroundColor: "#EAEAEA" }}>
       <HeaderSection />
       <ProfileMainSection />
     </SafeAreaView>
   );
 };
-
-const headerStyles = StyleSheet.create({
-  top: {
-    height: "18%",
-    backgroundColor: "#fff",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    elevation: 5,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  topContainerNameText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#000",
-  },
-  topContainerEditProfilePictureText: {
-    fontSize: 10,
-    fontWeight: "normal",
-    color: "#888888",
-  },
-  icon: {
-    width: 50,
-    height: 50,
-    backgroundColor: "#000",
-    marginLeft: 30,
-    marginRight: 15,
-  },
-});
-
-const mainStyles = StyleSheet.create({
-  largeGrayscaleText: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#616161",
-    marginVertical: 7,
-  },
-  mediumGrayscaleText: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "#616161",
-    marginVertical: 10,
-  },
-  mediumGrayscaleTextBold: {
-    fontSize: 13,
-    fontWeight: "bold",
-    color: "#616161",
-    marginVertical: 10,
-  },
-  smallGrayscaleText: {
-    fontSize: 10,
-    fontWeight: "normal",
-    color: "#7B7B7B",
-    marginBottom: 10,
-  },
-  horizontalRule: {
-    borderBottomColor: "#7B7B7B",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    width: "100%",
-  },
-});
 
 const makeIconRender = (name) => {
   return ({ color }) => (
