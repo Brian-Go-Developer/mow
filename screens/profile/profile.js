@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { HorizontalRule } from "../components/index";
+import { HorizontalRule } from "../../components/index.js";
 
 const HeaderSection = () => {
   return (
