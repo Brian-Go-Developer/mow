@@ -2,6 +2,7 @@ import Onboarding from "react-native-onboarding-swiper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "react-native";
 import React from "react";
+import SplashIcon from '../../assets/splash.png';
 
 const OnboardingScreen = ({ navigation }) => {
   const completeOnboarding = async () => {
@@ -21,13 +22,13 @@ const OnboardingScreen = ({ navigation }) => {
         {
           backgroundColor: "#fff",
           title: "Onboarding",
-          image: <Image source={require("../assets/splash.png")} />,
+          image: <Image source={SplashIcon} />,
           subtitle: "Done with React Native Onboarding Swiper",
         },
         {
           backgroundColor: "#aaa",
           title: "Onboarding 2",
-          image: <Image source={require("../assets/splash.png")} />,
+          image: <Image source={SplashIcon} />,
           subtitle: "Done with React Native Onboarding Swiper",
         },
       ]}
