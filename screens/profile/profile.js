@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { global } from "../styles/global";
+import { global } from "../../styles/global";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
-    <View style={global.container}>
+    <View style={global.container} {...props}>
       <Text>Profile</Text>
     </View>
   );
