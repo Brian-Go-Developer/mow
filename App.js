@@ -17,7 +17,6 @@ export default function App() {
 
   const checkLocationPermissions = async () => {
     const permission = await Location.hasServicesEnabledAsync();
-    console.log(permission);
     if (permission === true) {
       setLocationEnabled(true);
     }
