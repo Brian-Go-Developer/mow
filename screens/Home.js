@@ -30,24 +30,13 @@ const Home = () => {
     top: windowHeight * 0.9,
     bottom: 75,
   };
-  const panelRef = useRef();
-
-  useEffect(() => {
-    panelRef.current.show({
-      toValue: 150,
-    });
-  }, []);
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <SearchHeader />
       <MapView />
-      <SlidingUpPanel
-        draggableRange={draggableRange}
-        backdropOpacity={0}
-        ref={panelRef}
-      >
+      <SlidingUpPanel draggableRange={draggableRange} backdropOpacity={0}>
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
           <View style={styles.panel}>
             <TruckListView />
