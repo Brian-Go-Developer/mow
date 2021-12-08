@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { View, Text, Keyboard, TouchableWithoutFeedback } from "react-native";
+import React, { useState } from "react";
+import { View, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Dimensions } from "react-native";
@@ -30,13 +30,30 @@ const Home = () => {
     top: windowHeight * 0.9,
     bottom: 75,
   };
+  const [sliderUp, setSliderUp] = useState(false);
+
+  const handleSliderUp = (gestureState) => {
+    if (gestureState.vy * 1000000 < 0) {
+      setSliderUp(true);
+    }
+  };
+
+  const handleSliderDown = (gestureState) => {
+    if (gestureState.vy * 1000000 > 0) {
+      setSliderUp(false);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <SearchHeader />
-      <MapView />
-      <SlidingUpPanel draggableRange={draggableRange} backdropOpacity={0}>
+      <MapView slider={sliderUp} />
+      <SlidingUpPanel
+        draggableRange={draggableRange}
+        backdropOpacity={0}
+        onDragStart={(value, gestureState) => handleSliderUp(gestureState)}
+        onDragEnd={(value, gestureState) => handleSliderDown(gestureState)}
+      >
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
           <View style={styles.panel}>
             <TruckListView />
