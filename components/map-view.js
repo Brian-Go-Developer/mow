@@ -41,7 +41,7 @@ const MapView = ({ slider }) => {
   }, []);
 
   const handleMapMove = (e) => {
-    if (load > 2) {
+    if (load > 3) {
       setLoad(load + 1);
       return;
     }

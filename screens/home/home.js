@@ -3,9 +3,8 @@ import { View, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Dimensions } from "react-native";
-import SearchHeader from "../components/search-header";
-import TruckListView from "../components/truck-list-view";
-import MapView from "../components/map-view";
+import TruckListView from "../../components/truck-list-view";
+import MapView from "../../components/map-view";
 
 const styles = {
   container: {
