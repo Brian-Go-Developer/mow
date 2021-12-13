@@ -1,8 +1,26 @@
 import React from "react";
-import { View, Text } from "react-native";
-const TruckListView = () => {
+import { View, Text, FlatList, StyleSheet, ScrollView } from "react-native";
+
+const TruckItem = ({ name }) => {
+  console.log(name);
   return (
-    <>
+    <View style={styles.item}>
+      <Text style={styles.name}>{name}</Text>
+    </View>
+  );
+};
+
+const TruckListView = ({ truckData }) => {
+  const renderItem = ({ item }) => <TruckItem name={item.name} />;
+
+  return (
+    <View
+      style={{
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <View
         style={{
           width: 50,
@@ -26,8 +44,28 @@ const TruckListView = () => {
         <Text style={{ fontWeight: "600", fontSize: 14 }}>24</Text>
         <Text style={{ fontWeight: "600" }}> trucks near you</Text>
       </View>
-    </>
+      <FlatList
+        data={truckData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={1}
+        style={{ width: "95%", marginTop: 15 }}
+      />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: "#dddddd",
+    color: "black",
+    padding: 20,
+    marginVertical: 8,
+  },
+  name: {
+    fontSize: 28,
+    color: "black",
+  },
+});
 
 export default TruckListView;

@@ -12,16 +12,7 @@ import Map, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
 import { Ionicons } from "@expo/vector-icons";
 
-const trucks = [
-  { latlng: { latitude: 32.46138, longitude: -86.47214 } },
-  { latlng: { latitude: 32.43138, longitude: -86.48914 } },
-  { latlng: { latitude: 32.48138, longitude: -86.40214 } },
-  { latlng: { latitude: 32.59138, longitude: -86.49214 } },
-  { latlng: { latitude: 32.36138, longitude: -86.31214 } },
-  { latlng: { latitude: 32.33138, longitude: -86.32214 } },
-];
-
-const MapView = ({ slider }) => {
+const MapView = ({ slider, truckData }) => {
   const windowWidth = Dimensions.get("window").width;
   const [showReloadButton, setShowReloadButton] = useState(false);
   const [sliderInterruptedReload, setSliderInterruptedReload] = useState(false);
@@ -166,7 +157,7 @@ const MapView = ({ slider }) => {
               onPress={() => Keyboard.dismiss()}
             >
               <Marker coordinate={location.coords} />
-              {trucks.map((truck, index) => (
+              {truckData.map((truck, index) => (
                 <Marker key={index} coordinate={truck.latlng} />
               ))}
             </Map>
