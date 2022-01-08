@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, FlatList, StyleSheet, ScrollView } from "react-native";
 
 const TruckItem = ({ name }) => {
-  console.log(name);
   return (
     <View style={styles.item}>
       <Text style={styles.name}>{name}</Text>
@@ -18,7 +17,7 @@ const TruckListView = ({ truckData }) => {
       style={{
         width: "100%",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <View
@@ -27,7 +26,7 @@ const TruckListView = ({ truckData }) => {
           backgroundColor: "#ddd",
           height: 4,
           borderRadius: 2,
-          marginBottom: 20,
+          marginBottom: 20
         }}
       />
       <View
@@ -38,7 +37,7 @@ const TruckListView = ({ truckData }) => {
           borderBottomColor: "#eee",
           width: "95%",
           borderBottomWidth: 2,
-          paddingBottom: 25,
+          paddingBottom: 25
         }}
       >
         <Text style={{ fontWeight: "600", fontSize: 14 }}>24</Text>
@@ -60,12 +59,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#dddddd",
     color: "black",
     padding: 20,
-    marginVertical: 8,
+    marginVertical: 8
   },
   name: {
     fontSize: 28,
-    color: "black",
-  },
+    color: "black"
+  }
 });
 
 export default TruckListView;
